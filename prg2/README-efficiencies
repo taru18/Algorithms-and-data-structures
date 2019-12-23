@@ -1,0 +1,18 @@
+Toteutuksessa käytetyt tietorakenteet ja niiden tehokkuudet:
+
+std::map<Coord, Xpoint> allFibres;
+    -lisäykset, poistot ja alkioiden etsiminen nopeita (O(n))
+
+std::map<std::pair<Coord, Coord>, Cost> fibreCoords;
+    -kaikki koordinaattiparit yhdessä paikassa järjestyksessä
+    -lisäykset, poistot ja alkioiden etsiminen nopeita (O(logn))
+    -suurimmat ja pienimmät arvot helposti saatavissa (O(1))
+
+std::map<Coord, Cost> fibres = {};
+    -toisiin coordinaatteihin menevät kuidut helposti tallessa hintoineen
+
+
+Kaikki yllä mainitut map-rakenteet olisin toteuttanut unordered_map versiona,
+sillä järjestystä ei tarvitse kuin muutamassa funktiossa. Jostain syystä en kuitenkaan saanut
+unordered_map tyypillä ohjelmaa toimimaan (vaikka prg1 funktioissa käytössä myös unordered_map)
+ja aika tuli vastaan kaikkien ongelmien selvittämiseksi, joten tyydyin nyt normaaleihin mappeihin.
